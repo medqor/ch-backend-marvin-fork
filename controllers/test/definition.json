@@ -1,0 +1,41 @@
+{
+  "route": "/test",
+  "methods": [
+    {
+      "method": "GET",
+      "description": "Performs a test of the general API availability",
+      "parameters": [
+        {
+          "name": "options",
+          "required": false,
+          "type": "string",
+          "valid": "true,false"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "description": "Submits a bug report",
+      "parameters": [
+        {
+          "name": "route",
+          "required": true,
+          "type": "string",
+          "valid": "any existing API route"
+        },
+        {
+          "name": "version",
+          "required": false,
+          "type": "integer",
+          "valid": "any existing API version (e.g, /v2/test wound be \"2\")"
+        },
+        {
+          "name": "method",
+          "required": true,
+          "type": "string",
+          "valid": "GET,POST,PUT,DELETE, UPDATE"
+        }
+      ]
+    }
+  ]
+}

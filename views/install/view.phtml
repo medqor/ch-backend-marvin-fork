@@ -1,0 +1,140 @@
+<table style="margin:auto;" class="validate">
+    <tr>
+        <td colspan="2"><h4>Defined system variables:</h4></td>
+    </tr>
+    <tr>
+        <th><label>Hash: (A random salt hash used for security)</label></th>
+        <td><input type="text" name="defines[HASH]"
+                   value="<?php echo $config['defines']['HASH'] ?? md5(microtime(true)); ?>"</td>
+    </tr>
+    <tr>
+        <th><label>Title: The title for your app</label></th>
+        <td><input type="text" name="defines[TITLE]" value="<?php echo $config['defines']['TITLE'] ?? 'My New App' ?>"
+        </td>
+    </tr>
+    <tr>
+        <th><label>Subtitle: A subtitle for your app</label></th>
+        <td><input type="text" name="defines[SUBTITLE]"
+                   value="<?php echo $config['defines']['SUBTITLE'] ?? 'Shiny Subtitle' ?>"</td>
+    </tr>
+    <tr>
+        <th><label>Application: Your Application NameSpace</label></th>
+        <td><input type="text" name="defines[APPLICATION]"
+                   value="<?php echo $config['defines']['APPLICATION'] ?? 'Minamp' ?>"</td>
+    </tr>
+    <tr>
+        <td colspan="2"><h4>Database connections:</h4></td>
+    </tr>
+    <?php foreach ($config['databases'] as $database => $settings) { ?>
+        <tbody>
+        <tr>
+            <th colspan="2"><h5>Database: <?php echo $database; ?></h5></th>
+        </tr>
+        <tr>
+            <th>Host</th>
+            <td><input name="databases[<?php echo $database; ?>][host]" value="<?php echo $settings['host'] ?? ''; ?>"
+            </td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td><input name="databases[<?php echo $database; ?>][user]" value="<?php echo $settings['user'] ?? ''; ?>"
+            </td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input name="databases[<?php echo $database; ?>][pass]" value="<?php echo $settings['pass'] ?? ''; ?>"
+            </td>
+        </tr>
+        <tr>
+            <th>Default Schema</th>
+            <td><input name="databases[<?php echo $database; ?>][base]" value="<?php echo $settings['base'] ?? ''; ?>"
+            </td>
+        </tr>
+        </tbody>
+    <?php } ?>
+
+    <?php if ($usersTableExists === 'false') { ?>
+        <tbody>
+        <tr>
+            <td>Add Users Table</td>
+            <td><input type="checkbox" name="addUsersTable" class="addUsersTable" checked></td>
+        </tr>
+        <tr>
+            <td>Admin User</td>
+            <td><input type="text" name="user[username]" value="Admin" readonly></td>
+        </tr>
+        <tr>
+            <td>Admin Email</td>
+            <td><input type="text" class="req_email" name="user[email]" value=""></td>
+        </tr>
+        <tr>
+            <td>Admin First Name</td>
+            <td><input type="text" class="req_first" name="user[firstname]" value=""></td>
+        </tr>
+        <tr>
+            <td>Admin Last Name</td>
+            <td><input type="text" class="req_last" name="user[lastname]" value=""></td>
+        </tr>
+        <tr>
+            <td>Admin Password</td>
+            <td><input type="text" class="req_pass" name="user[password]" value="<?php echo $randomPass; ?>"></td>
+        </tr>
+        </tbody>
+    <?php } ?>
+    <tr>
+        <td></td>
+        <td><input type="submit" class="submit" value="save"></td>
+    </tr>
+
+</table>
+<script>
+    $(document).on('click', '.submit', function () {
+        if ($('.addUsersTable').length > 0 && $('.addUsersTable').is(':checked')) {
+            if ($('.req_email').val() == '') {
+                $('.req_email').addClass('ui-state-error');
+            } else {
+                if ($('.req_first').val() == '') {
+                    $('.req_email').removeClass('ui-state-error');
+                    $('.req_first').addClass('ui-state-error');
+
+
+                } else {
+                    if ($('.req_last').val() == '') {
+                        $('.req_first').removeClass('ui-state-error');
+                        $('.req_last').addClass('ui-state-error');
+
+                    } else {
+                        if ($('.req_pass').val() == '') {
+                            $('.req_last').removeClass('ui-state-error');
+                            $('.req_pass').addClass('ui-state-error');
+                        } else {
+                            $('.req_pass').removeClass('ui-state-error');
+
+                            sendData();
+                        }
+                    }
+                }
+            }
+        }else{
+           sendData();
+
+        }
+    });
+    var sendData = function(){
+        var data = $('table.validate').find('input').serializeArray();
+
+        $.ajax({
+            method: "POST",
+            url: "/install/ajax",
+            data: data,
+            dataType:'JSON'
+        })
+            .done(function( data ) {
+               if(data.status == true){
+                   window.location='/home';
+               }
+            });
+
+    }
+</script>
+

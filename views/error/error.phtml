@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>PHP Error:</title>
+    <meta name="environment" content="<?php echo ENVIRONMENT; ?>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery.timeago.js" type="text/javascript"></script>
+    <script src="/js/notify.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css"/>
+    <script type="text/javascript" src="//cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-html5-1.5.6/b-print-1.5.6/r-2.2.2/rr-1.2.4/sc-2.0.0/datatables.min.js"></script>
+<style>
+    .error_th label{
+        width:7em;
+        margin-right:1em;
+    }
+    .error_th{
+        width:7em;
+        height:2.2em;
+        border:1px solid black;
+        padding:1em;
+        vertical-align: top;
+    }
+    .error_td{
+
+        min-height:2.2em;
+        border:1px solid black;
+        padding:1em;
+    }
+    h4{
+        width:100%%;
+        text-align:center;
+        margin:auto;
+    }
+</style>
+</head>
+<body>
+<div class="col-lg-8 col-lg-offset-2">
+
+
+
+
+<table style="width:100%%;">
+    <tr>
+        <th colspan="2" class="error_th"><h4>Fatal Error: %s</h4></th>
+    </tr>
+    <tr>
+        <th class="error_th">Error Type</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Environment</th>
+        <td class="error_td">%s</td>
+    </tr>
+
+    <tr>
+        <th class="error_th">File</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Line</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Error</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Trace</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Code</th>
+        <td class=" error_td ">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Memory</th>
+        <td class="error_td">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">GET</th>
+        <td class="error_td"><pre class=" error_code">%s</pre></td>
+    </tr>
+    <tr>
+        <th class="error_th">POST</th>
+        <td  class="error_td"><pre class=" error_code">%s</pre></td>
+    </tr>
+    <tr>
+        <th class="error_th">BODY</th>
+        <td  class="error_td"><pre class=" error_code">%s</pre></td>
+    </tr>
+
+    <tr>
+        <th class="error_th">Retry</th>
+        <td class=" error_td error_code">%s</td>
+    </tr>
+    <tr>
+        <th class="error_th">Last Stored Query</th>
+        <td class=" error_td"><pre class=" error_code">%s</pre></td>
+    </tr>
+    <tr>
+        <th class="error_th">Dump</th>
+        <td class=" error_td"><pre class=" error_code">%s</pre></td>
+    </tr>
+</table>
+
+</div>
+
+
+</body>
+</html>
+    <style>
+       /* body{*/
+       /*     z-index:0 !important;*/
+
+       /* }*/
+       /** {*/
+       /*     all: revert;*/
+       /* }*/
+       /* .error_modal_fakery{*/
+       /*     z-index:1;*/
+       /*     position:absolute;*/
+       /*     top:0px;*/
+       /*     left:0px;*/
+       /*     width:100%%;*/
+       /*     height:100%%;*/
+       /*     background-color:black;*/
+       /*     opacity:.5*/
+       /* }*/
+       /* .error_body{*/
+       /*     z-index:100 !important;*/
+       /*     background-color:grey;*/
+       /*     color:#000;*/
+       /*     position:absolute;*/
+       /*     left:5%%;*/
+       /*     top:5%%;*/
+       /*     width:90%%;*/
+
+       /* }*/
+       /* .error_fieldset,.error_legend{*/
+       /*     background-color:white;*/
+       /* }*/
+       /* .error_fieldset{*/
+       /*    margin:auto;border:double 2px red;*/
+       /* }*/
+       /* .error_legend{*/
+       /*     padding:.5em;*/
+       /*     border:double 2px red;*/
+       /* }*/
+       /* .error_th,.error_td{*/
+       /*     color:#000;*/
+       /*     vertical-align:top;*/
+       /*     text-align:left;*/
+       /*     min-width:9em;*/
+       /*     padding:.5em;*/
+       /* }*/
+       /* .error_code, .error_code pre{*/
+       /*     border:1px inset grey;*/
+       /*     background-color:black !important;*/
+       /*     overflow:auto;*/
+       /*     color:white !important;*/
+       /*     font-family:monospace;*/
+       /*     padding:1em;*/
+       /*     font-weight:100;*/
+       /* }*/
+    </style>
+
+    <div ></div>
+
+<div class="error_modal_fakery"></div>
+<div class="error_body">
+
+</div>

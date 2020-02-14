@@ -1,0 +1,41 @@
+<style>
+    table.versions td {
+        padding: 2px 10px;
+    }
+</style>
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="upload">
+    <table style="width:50%;margin:auto">
+        <?php if (trim($error)) { ?>
+            <tr>
+            <td colspan="2" class="ui-state-error"><?php echo $error; ?></td>
+            </tr>
+        <?php } ?>
+        <tr>
+            <th>Current Version(s)</th>
+
+            <td>
+                <table class="versions">
+                    <tr>
+                        <th>Version</th>
+                        <th>Records</th>
+                    </tr>
+                    <?php foreach ($versions as $version) {
+                        echo sprintf("<tr><td>%s</td><td>%s</td></tr>", $version['datecreated'], number_format($version['records_count'], 0));
+                    } ?>
+                </table>
+
+        </tr>
+        <tr>
+            <th colspan="2"> Upload <strong>export-for-qorpus.csv</strong></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="file" name="data_merge"></td>
+        </tr
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Upload" class="btn btn-secondary"></td>
+        </tr>
+    </table>
+</form>

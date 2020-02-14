@@ -1,0 +1,23 @@
+
+<div class="login-body">
+    <article class="container-login center-block">
+        <section>
+            <div class="tab-content tabs-login col-lg-4 col-md-6 col-sm-10 cols-xs-12 center-block" style="margin:auto;">
+                <div id="login-access" class=" ">
+                    <h2><?php echo APPLICATION ?> Password Recover</h2>
+                    <form method="post" action="<?php echo WEB_ROOT;?>login/recover" accept-charset="utf-8" autocomplete="off" role="form" class="form-horizontal">
+                        <div class="form-group ">
+                            <label for="login" class="sr-only">Username/Email</label>
+                            <input type="text" class="form-control" name="username" id="login_value"
+                                   placeholder="Username/Email" tabindex="1" value="" />
+                        </div>
+                        <br/>
+                        <div class="form-group ">
+                            <center> <button type="submit" name="log-me-in" id="submit" tabindex="5" class="btn btn-lg btn-primary">Submit</button></center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </article>
+</div>

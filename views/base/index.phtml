@@ -1,0 +1,64 @@
+<html>
+<head>
+   <?php require_once 'page_header.phtml';?>
+</head>
+<body>
+<?php require_once 'page_navigation.phtml';?>
+<div id="page_notices">
+    <?php
+    $notices=$this->registry->get('notice');
+    if($notices!=false){
+        foreach($notices as $notice){
+            echo"<div class='ui-state-highlight'>$notice</div>";
+        }
+    }
+    ?>
+    <?php
+    $notices=$this->registry->get('error');
+    if($notices!=false){
+        foreach($notices as $notice){
+            echo"<div class='ui-state-error'>$notice</div>";
+        }
+    }
+    ?>
+</div>
+
+<?php require($route); ?>
+<script type="text/javascript" src="//unpkg.com/axios/dist/axios.min.js"></script>
+<?php
+require 'footer_js_helper.php';
+?>
+<script>
+    $(document).ready(function () { <?php
+        if ($this->registry->get('system_error')) {
+            foreach (@$this->registry->get('system_error') as $error) {
+                sprintf("\t\t $('#system_errors').notify('%s',{autohide:false, elementPosition: 'bottom left'});\r\n", $error);
+            }
+        }
+        ?>
+    });
+</script>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/>
+<?php require_once 'page_footer.phtml';?>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11438477-11']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>

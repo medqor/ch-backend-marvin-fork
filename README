@@ -1,0 +1,1 @@
+Rename config/production.sample.ini to config/production.ini and enter your database connection info. Multiple databases (such as a reader/writer setup) are supported.

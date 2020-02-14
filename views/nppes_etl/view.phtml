@@ -1,0 +1,38 @@
+<style>
+    #content{
+        background-color:#000;
+        color:#fff;
+        height:100vh;
+    }
+    table,th, td{
+        color:#fff;
+    }
+    table{
+        width:30em;
+        margin:auto;
+        border-bottom:2px solid silver;
+        margin-bottom:3em;
+    }
+    th{
+        text-align:center;
+    }
+    th, td{
+        padding:0px 1em;
+    }
+</style>
+<div id="content">
+<?php
+//foreach($tables as $table=>$datasets){
+//    echo"<table ><thead><tr><th colspan='2'>$table</th></tr></thead><tbody>";
+//    foreach($datasets as $row){
+//        echo sprintf("<tr><td>%s</td><td>%s</td></tr>",$row['etl_date'],number_format($row['records'],0));
+//    }
+//    echo"</tbody></table>";
+//}
+?>
+<center>
+    <div><?php echo $latest;?></div>
+
+<a href="/nppes_etl/import"><span class="btn btn-primary">Perform Import</span></a>
+</center>
+</div>

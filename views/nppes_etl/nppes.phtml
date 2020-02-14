@@ -1,0 +1,55 @@
+<style>
+    body{
+        background-color:#000;
+        color:#fff;
+    }
+    td{
+        text-align:center;
+        height:2em;
+    }
+    #count, #total{
+        font-size:150%;
+    }
+    #sql{
+        text-align: left;
+    }
+
+</style>
+<div style="width:100%;" id="navigation">
+
+</div>
+<div  style="padding:2em;margin:auto;width:90%;border:1px solid white;background:rgba(200,255,255,.4);border-radius:1em;">
+    <h1 style="margin:auto;">NPPES Monthly Import for <span id="for"></span></h1>
+<table style="width:100%">
+
+    <tbody>
+    <tr>
+        <th colspan="5"></th>
+        <th>Current</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td Colspan="5" id="live_flush"></td>
+        <td id="count"></td>
+        <td id="total"></td>
+    </tr>
+
+    <tr>
+        <th>File Operations</th>
+        <td colspan=6 id="file"></td>
+    </tr>
+    <tr>
+        <th>Upsert Status</th>
+        <td colspan="6" id="upsert"></td>
+    </tr>
+    <tr>
+        <th>Errors</th>
+        <td colspan="6" id="errors"></td>
+    </tr>
+
+    <tr>
+        <td colspan="7" id="command"></td>
+    </tr>
+    </tbody>
+</table>
+</div>

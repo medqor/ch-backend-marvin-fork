@@ -1,0 +1,19 @@
+SetEnv ENVIRONMENT production
+SetEnv DB_HOST db775531329.hosting-data.io
+SetEnv DB_USER dbo775531329
+SetEnv DB_PASS audi5000
+SetEnv DB_BASE db775531329
+SetEnv no-gzip 1
+
+SetEnv MOD_REWRITE On
+#
+RewriteEngine On
+DirectoryIndex index.php
+#
+#
+#
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?request=$1 [QSA,L]
+

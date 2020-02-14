@@ -1,0 +1,19 @@
+{
+    "require": {
+        "logentries/logentries": "^1.6",
+	        "cognitivebuild/watsonphpsdk": "dev-master",
+        "kweaver00/watson_php": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "google/apiclient": "^2.0",
+        "google/cloud": "^0.93.0",
+        "tonirilix/nested-json-flattener": "^2.1",
+        "peekmo/jsonpath": "^1.1",
+         "twig/twig": "^2.6",
+        "predis/predis": "^1.1",
+        "fungku/hubspot": "^1.0",
+        "phpmailer/phpmailer": "^6.0",
+        "aws/aws-sdk-php": "^3.133",
+        "pda/pheanstalk": "^4.0",
+        "mongodb/mongodb": "^1.6"
+    }
+}

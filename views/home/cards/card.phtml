@@ -1,0 +1,27 @@
+<div style="display:none" class="row ">
+    <div class="card card-meta" href="#" id="action_<?php echo $card['action']; ?>">
+        <div class=" col-sm-12 col-md-12 col-lg-6">
+        <h2 class="<?php echo $card['classes']; ?>"><?php echo $card['title']; ?></h2>
+
+        <div class=" col-sm-12 col-md-6 col-lg-6">
+            <p>
+                <?php echo $card['summary']; ?>
+            </p>
+            <?php echo $card['description']; ?>
+            <input type="text" placeholder="Text input"
+                   class="lcars-u-12 frame-src <?php echo isset($card['ajax']) ? ' ajax' : ''; ?>"
+                   value="<?php echo $card['example']; ?>"/>
+            <label for="cb-demo" class=" lcars-element lcars-u-2 right-rounded builder <?php echo $card['classes']; ?>">
+                Execute
+            </label>
+        </div>
+        <div class="lcars-row  col-sm-12 col-md-12 col-lg-6">
+            <div class="lcars-bracket left"></div>
+            <div class="lcars-column">
+                <div class="lcars-u-14 frame-target">
+                </div>
+            </div>
+            <div class="lcars-bracket right"></div>
+        </div>
+    </div>
+</div>
